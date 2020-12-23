@@ -1,14 +1,28 @@
 <script>
+	import liff from '@line/liff';
   import { todos, sync } from './store.js'
 	import Header from './comps/Header.svelte';
 	import Todos from './comps/Todos.svelte';
 	import Empty from './comps/Empty.svelte';
+	import { onMount } from 'svelte';
 
 	let showComplete = false;
 	let text = '';
 
 	$: pending = $todos.filter(todo => todo.done === false)
 	$: complete = $todos.filter(todo => todo.done === true)
+
+	onMount(() => {
+		liff
+		.init({ liffId: '1655326154-JGZrvYXM' })
+		.then(async () => {
+			const name = await liff.getProfile()
+			console.log('LIFF logged');
+		})
+		.catch((err) => {
+			console.log('Error during init LIFF', err);
+		})
+	})
 
 	const handleAdd = (e) => {
 		if (e.key === 'Enter') {
