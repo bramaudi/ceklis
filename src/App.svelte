@@ -37,7 +37,7 @@
 	}
 </script>
 
-<Header {pending} {complete}>Ceklis</Header>
+<Header {pending} {complete}>📌 Ceklis</Header>
 
 <input
 	type="text"
