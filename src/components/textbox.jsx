@@ -9,6 +9,7 @@ export default ({ state, set }) => {
       className="textbox"
       type="text"
       value={text}
+      placeholder="Ok, ketik disini ya"
       onInput={e => set('text', e.target.value)}
       onKeyUp={e => handleAdd(state, set, e)}
       />
